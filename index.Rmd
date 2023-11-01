@@ -1,13 +1,21 @@
 ---
-title: "My awesome website"
+title: "The first website build by Qianyuan Huang"
 output: 
   html_document:
     toc: true
     toc_float: true
 ---
 
-# This is Jeff's awesome website
+# This is Qianyuan Huang's website
 
 ### * [**Resume**](qianyuan_huang.pdf)
 
 <img src="QH.jpg" style="width:35%">
+
+
+Education:
+2015-2018 Hangzhou Foreign language school, China
+2018-2023 University of Toronto, Canada 
+2023- Columbia University, US
+
+*Other personal information please click Resume
