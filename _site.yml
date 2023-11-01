@@ -13,4 +13,4 @@ navbar:
       href: dashboard.html
 output:
   html_document:
-    theme: lumen
+    theme: journal
