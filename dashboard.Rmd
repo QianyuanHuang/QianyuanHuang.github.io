@@ -26,12 +26,13 @@ Column {data-width=650}
 -----------------------------------------------------------------------
 
 ### Chart A
-
 ```{r}
-data$date <- as.Date(data$date)
-data$date_char <- as.character(data$date)
-plot_ly(data, x = ~date_char, y = ~tmax, type = "scatter", mode = "markers", color = ~tmax, colorscale = "Viridis") %>%
-  layout(title = "Scatterplot of Tmax over Date", xaxis = list(type = "category"))
+# Extract the year from the date column
+data$year <- format(as.Date(data$date), "%Y")
+# Create a box plot for precipitation distribution by year
+plot_ly(data, y = ~log(prcp), x = ~year, type = "box", name = ~year) %>%
+  layout(title = "Precipitation Distribution by Year", yaxis = list(title = "Precipitation"))
+
 ```
 
 Column {data-width=350}
@@ -53,10 +54,10 @@ plot_ly(data_avg_prcp, x = ~date, y = ~avg_prcp, type = "scatter", mode = "lines
 ### Chart C
 
 ```{r}
-# Extract the year from the date column
-data$year <- format(as.Date(data$date), "%Y")
-# Create a box plot for precipitation distribution by year
-plot_ly(data, y = ~log(prcp), x = ~year, type = "box", name = ~year) %>%
-  layout(title = "Precipitation Distribution by Year", yaxis = list(title = "Precipitation"))
+
+data$date <- as.Date(data$date)
+data$date_char <- as.character(data$date)
+plot_ly(data, x = ~date_char, y = ~tmax, type = "scatter", mode = "markers", color = ~tmax, colorscale = "Viridis") %>%
+  layout(title = "Scatterplot of Tmax over Date", xaxis = list(type = "category"))
 ```
 

@@ -13,9 +13,9 @@ output:
 <img src="QH.jpg" style="width:35%">
 
 
-Education:
-2015-2018 Hangzhou Foreign language school, China
-2018-2023 University of Toronto, Canada 
-2023- Columbia University, US
+Education:\
+2015-2018 Hangzhou Foreign language school, China\
+2018-2023 University of Toronto, Canada\
+2023- Columbia University, US\
 
 *Other personal information please click Resume
