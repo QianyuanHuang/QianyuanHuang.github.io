@@ -1,8 +1,11 @@
 /* styles.css */
 body {
   background-color: #f0f0f0; /* Replace with your desired background color */
-  background-image: url('1049239.jpg'); /* Replace with your desired background image */
+  background-image: url('1044012.jpg'); /* Replace with your desired background image */
   background-size: cover; /* This ensures that your background image covers the entire space */
   background-repeat: no-repeat;
   background-attachment: fixed;
+}
+p {
+  color: red;
 }
