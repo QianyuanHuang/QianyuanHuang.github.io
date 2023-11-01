@@ -1,0 +1,62 @@
+---
+title: "Plotly"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+---
+
+```{r}
+library(flexdashboard)
+library(dplyr)
+library(plotly)
+library(readr)
+library(tidyverse)
+library(p8105.datasets)
+
+rnoaa <- read.csv("nynoaadat.csv")
+set.seed(123)
+sample_size <- 1000
+sampled_data <- rnoaa[sample(nrow(rnoaa), sample_size), ]
+write.csv(sampled_data, "sampled_data.csv", row.names = FALSE)
+data <- read.csv("sampled_data.csv")
+```
+
+Column {data-width=650}
+-----------------------------------------------------------------------
+
+### Chart A
+
+```{r}
+data$date <- as.Date(data$date)
+data$date_char <- as.character(data$date)
+plot_ly(data, x = ~date_char, y = ~tmax, type = "scatter", mode = "markers", color = ~tmax, colorscale = "Viridis") %>%
+  layout(title = "Scatterplot of Tmax over Date", xaxis = list(type = "category"))
+```
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### Chart B
+
+```{r}
+data_avg_prcp <- data %>% 
+  group_by(date) %>% 
+  summarise(avg_prcp = mean(prcp, na.rm = TRUE))
+
+plot_ly(data_avg_prcp, x = ~date, y = ~avg_prcp, type = "scatter", mode = "lines") %>%
+  layout(title = "Average Precipitation Over Time")
+
+
+```
+
+### Chart C
+
+```{r}
+# Extract the year from the date column
+data$year <- format(as.Date(data$date), "%Y")
+# Create a box plot for precipitation distribution by year
+plot_ly(data, y = ~log(prcp), x = ~year, type = "box", name = ~year) %>%
+  layout(title = "Precipitation Distribution by Year", yaxis = list(title = "Precipitation"))
+```
+
