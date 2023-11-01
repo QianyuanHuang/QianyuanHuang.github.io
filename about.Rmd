@@ -4,4 +4,4 @@ output: html_document
 date: "2023-11-01"
 ---
 
-Here is about page.
+The website serves as my personal online space. Here, you can explore my professional credentials on my resume along with some personal details.
